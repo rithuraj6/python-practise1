@@ -1,20 +1,23 @@
-pipeline{
-    agent any  agent {
+pipeline {
+    agent {
         docker {
             image 'python:3.10'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
+
     stages {
-        stage ("Install Dependencies"){
+
+        stage('Install Dependencies') {
             steps {
                 sh 'pip install -r requirements.txt'
             }
         }
-        stage ('Run Test File') {
-            steps{
-                sh 'python app1/test1.py'
+
+        stage('Run Test File') {
+            steps {
+                sh 'python myproject/app1/test1.py'
             }
         }
+
     }
 }

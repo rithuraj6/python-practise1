@@ -3,31 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Setup Python Environment') {
-            steps {
-                sh '''
-                python3 -m venv venv
-                . venv/bin/activate
-                pip install -r requirements.txt
-                '''
-            }
-        }
-
-        stage('Run Test File') {
-            steps {
-                sh '''
-                . venv/bin/activate
-                python myproject/app1/test1.py
-                '''
-            }
-        }
-
-    }
-}pipeline {
-    agent any
-
-    stages {
-
         stage('Install Dependencies') {
             steps {
                 sh 'pip3 install --break-system-packages -r requirements.txt'

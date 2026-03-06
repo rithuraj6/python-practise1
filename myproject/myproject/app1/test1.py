@@ -7,4 +7,4 @@ def students_info(name,age,course):
 
 
 
-students_info(name="amith",age=25,course="civil")
+students_info(name="alan d",age=25,course="civil")
